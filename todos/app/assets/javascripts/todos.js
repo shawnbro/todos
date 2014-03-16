@@ -8,23 +8,28 @@ function addToDo(todoText, completeness) {
   var todo = $("<li id='" + counter+ "'>" + todoText + "</li>")
   $('ul').append(todo);
   $('li#'+counter).append("<input type='checkbox' id='complete"+counter+"'></input>");
+  
   if(completeness == true) {
     $('li#'+counter).addClass("complete");
+    $('input#complete'+counter).prop('checked', true)
   }
 
   $('li#'+ counter).append("<button id='delete'>x</button>");
   var checkBox = $("input#complete"+counter.toString());
   
   checkBox.on("click", function(e) {
+
     $(this).parent().toggleClass("complete");
+
     var id = $(this).parent().attr('id');
-    console.log(id)
+    
     $.ajax({
       url: '/todos/'+id,
       type: 'PUT',
-      data: {complete: true}
+      data: {complete: !completeness}
     });
   })
+
   counter++
 }
 

@@ -16,20 +16,10 @@ class TodosController < ApplicationController
     render json: @todo
   end
 
-  # def show
-  #   @todo = Todo.find_by_id(params[:id])
-    
-  #   redirect_to root_path
-  # end
-
   def update
     
     @todo = Todo.find_by_id(params[:id])
-    if @todo.complete == false 
-      @todo.update(complete: true)
-    else
-      @todo.update(complete: false)
-    end
+    @todo.update(complete: params[:complete])
     render json: @todo
     
   end
