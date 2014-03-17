@@ -1,7 +1,10 @@
 Todos::Application.routes.draw do
   root 'todos#new'
 
-  resources :todos, only: [:show, :index, :create, :delete, :update] 
+  get 'todos/last', :to => 'todos#last'
+  # get 'profiles/charities', :to => 'profiles#charities_index'
+
+  resources :todos, only: [:show, :index, :create, :destroy, :update] 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
