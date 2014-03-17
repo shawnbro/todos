@@ -2,10 +2,15 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
+
 body {
-  font-family: "Open Sans", "Sans Serif";
+  font-family: "Open Sans", "Sans Serif", "Helvetica", "Arial";
   background-color: #eae7e4;
+  font-weight: lighter;
+  position: fixed;
+  width: 500px;
 }
+
 .complete {
   text-decoration: line-through;
 }
@@ -24,6 +29,7 @@ div {
 /*  border: 1px solid green;*/
   margin: 0 auto;
   padding: 5px;
+  width:100%
 }
 
 #add-todo {
@@ -70,5 +76,5 @@ body > h2 {
 }
 
 .delete {
-border-width: 0;
+  border-width: 1px;
 }
